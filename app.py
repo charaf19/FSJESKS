@@ -1,6 +1,10 @@
 import streamlit as st
 import requests
-
+st.markdown(f"""
+<div style="text-align: center">
+  <img src="logo.png" alt="Your Company Logo" style="width: 200px; height: auto;">
+</div>
+""", unsafe_allow_html=True)
 st.title("FSJES KS")
 
 # Language selection
