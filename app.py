@@ -1,8 +1,8 @@
 import streamlit as st
 import requests
 st.markdown(f"""
-<div style="text-align: center">
-  <img src="logo.png" alt="Your Company Logo" style="width: 200px; height: auto;">
+<div style="display: flex; justify-content: center;">
+  <img src="https://raw.githubusercontent.com/charaf19/FSJESKS/main/logo.png" alt="FSJES KS" style="width: 200px; height: auto;">
 </div>
 """, unsafe_allow_html=True)
 st.title("FSJES KS")
