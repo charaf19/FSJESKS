@@ -1,5 +1,17 @@
 import streamlit as st
 import requests
+import time
+
+# Custom CSS to align Arabic text to the right
+st.markdown("""
+<style>
+.arabic-text {
+    direction: rtl;
+    text-align: right;
+}
+</style>
+""", unsafe_allow_html=True)
+
 st.markdown(f"""
 <div style="display: flex; justify-content: center;">
   <img src="https://raw.githubusercontent.com/charaf19/FSJESKS/main/logo.png" alt="FSJES KS" style="width: 200px; height: auto;">
@@ -17,7 +29,10 @@ if "messages" not in st.session_state:
 # Display chat messages from history on app rerun
 for message in st.session_state.messages:
     with st.chat_message(message["role"]):
-        st.markdown(message["content"])
+        if language == 'العربية' and message["role"] == "user":
+            st.markdown(f"<div class='arabic-text'>{message['content']}</div>", unsafe_allow_html=True)
+        else:
+            st.markdown(message["content"])
 
 # Function to fetch random questions from the API
 def fetch_random_questions(language):
@@ -31,21 +46,36 @@ def fetch_random_questions(language):
 st.sidebar.title("Suggestions de questions / اقتراحات الأسئلة")
 random_questions = fetch_random_questions(language)
 
+# Function to simulate typing animation
+def simulate_typing(text, delay=0.05):
+    typing_placeholder = st.empty()
+    typed_text = ""
+    for char in text:
+        typed_text += char
+        typing_placeholder.markdown(typed_text)
+        time.sleep(delay)
+    return typed_text
+
 # Function to handle sending messages and updating chat history
 def send_message(prompt):
     # Display user message in chat message container
-    st.chat_message("user").markdown(prompt)
+    if language == 'العربية':
+        st.chat_message("user").markdown(f"<div class='arabic-text'>{prompt}</div>", unsafe_allow_html=True)
+    else:
+        st.chat_message("user").markdown(prompt)
+
     # Add user message to chat history
     st.session_state.messages.append({"role": "user", "content": prompt})
 
     # Call Flask app to get response
     response = requests.post('http://localhost:5000/chat', json={"message": prompt, "language": language}).json()["response"]
 
-    # Display assistant response in chat message container
+    # Simulate typing animation for assistant response
     with st.chat_message("assistant"):
-        st.markdown(response)
+        response_text = simulate_typing(response)
+    
     # Add assistant response to chat history
-    st.session_state.messages.append({"role": "assistant", "content": response})
+    st.session_state.messages.append({"role": "assistant", "content": response_text})
 
 # Display random questions as clickable buttons
 for question in random_questions:
