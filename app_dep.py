@@ -97,7 +97,7 @@ for message in st.session_state.messages:
             st.markdown(message["content"])
 
 # Function to simulate typing animation
-def simulate_typing(text, delay=0.05):
+def simulate_typing(text, delay=0.01):
     typing_placeholder = st.empty()
     typed_text = ""
     for char in text:
