@@ -9,8 +9,8 @@ function Header() {
         <div className="flex items-center">
           <img src={logo} alt="University Logo" className="h-16 mr-4" />
           <div>
-            <h1 className="text-2xl font-bold">MARRAKECH</h1>
-            <h2 className="text-md font-semibold">FACULTÉ DES SCIENCES JURIDIQUES, ÉCONOMIQUES ET SOCIALES</h2>
+            <h1 className="text-2xl font-bold">FACULTÉ DES SCIENCES JURIDIQUES, ÉCONOMIQUES ET SOCIALES</h1>
+            <h2 className="text-md font-semibold">KELAA SRAGHNA</h2>
           </div>
         </div>
         <div className="flex items-center space-x-4">
@@ -28,6 +28,13 @@ function Header() {
             <i className="fab fa-linkedin-in"></i>
           </a>
         </div>
+        
+        <div className="flex space-x-4">
+            <span>Vous êtes</span>
+            <Link to="/student" className="hover:underline">ETUDIANT</Link>
+            <Link to="/teacher" className="hover:underline">ENSEIGNANT</Link>
+            <Link to="/staff" className="hover:underline">PERSONNEL</Link>
+          </div>
       </div>
       <nav className="bg-blue-600 text-white">
         <div className="container mx-auto p-4 flex justify-between items-center">
@@ -39,12 +46,7 @@ function Header() {
             <Link to="/news" className="hover:underline">ACTUALITÉS</Link>
             <Link to="/contact" className="hover:underline">NOUS CONTACTER</Link>
           </div>
-          <div className="flex space-x-4">
-            <span>Vous êtes</span>
-            <Link to="/student" className="hover:underline">ETUDIANT</Link>
-            <Link to="/teacher" className="hover:underline">ENSEIGNANT</Link>
-            <Link to="/staff" className="hover:underline">PERSONNEL</Link>
-          </div>
+
         </div>
       </nav>
     </header>
