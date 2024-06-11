@@ -5,18 +5,11 @@ import logo from '../assets/logo.png'; // Assuming you have a logo image in the 
 function Header() {
   return (
     <header className="bg-white shadow-md">
-      <div className="container mx-auto p-4 flex justify-between items-center">
-        <div className="flex items-center">
-          <img src={logo} alt="University Logo" className="h-16 mr-4" />
-          <div>
-            <h1 className="text-2xl font-bold">FACULTÉ DES SCIENCES JURIDIQUES, ÉCONOMIQUES ET SOCIALES</h1>
-            <h2 className="text-md font-semibold">KELAA SRAGHNA</h2>
-          </div>
-        </div>
-        <div className="flex items-center space-x-4">
-          <span>Suivez-nous sur</span>
+      <div className="flex bg-blue-600 p-2 items-center space-x-4">
+          <span style={{color: "#ffffff",}}>Suivez-nous sur</span>
           <a href="https://www.facebook.com" className="text-blue-600">
-            <i className="fab fa-facebook-f"></i>
+          
+          <i className="fab fa-facebook-f" style={{color: "#ffffff",}}></i>
           </a>
           <a href="https://www.twitter.com" className="text-blue-400">
             <i className="fab fa-twitter"></i>
@@ -28,6 +21,15 @@ function Header() {
             <i className="fab fa-linkedin-in"></i>
           </a>
         </div>
+      <div className="container mx-auto p-4 flex justify-between items-center">
+        <div className="flex items-center">
+        <Link to="/" className="p-4"><img src={logo} alt="University Logo" className="h-16 mr-4" /></Link>
+          <div>
+            <h1 className="text-2xl font-bold">FACULTÉ DES SCIENCES JURIDIQUES, ÉCONOMIQUES ET SOCIALES</h1>
+            <h2 className="text-md font-semibold">KELAA SRAGHNA</h2>
+          </div>
+        </div>
+        
         
         <div className="flex space-x-4">
             <span>Vous êtes</span>

@@ -1,10 +1,11 @@
 import React from 'react';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
-import event1 from '../assets/event1.png';
-import event2 from '../assets/event2.png';
-import event3 from '../assets/event3.png';
+import event1 from '../assets/event1.jpg';
+import event2 from '../assets/event2.jpg';
+import event3 from '../assets/event3.jpg';
 import heroImage from '../assets/bg.jpg'; // Make sure to place the hero image in the correct folder
+
 
 function HomePage() {
   return (
